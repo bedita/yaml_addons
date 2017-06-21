@@ -57,6 +57,7 @@ class SpecShell extends BeditaBaseShell {
                 $spec['definitions']
             );
         }
+        ksort($spec['definitions']);
         $yaml = Yaml::dump($spec, 2, 4, Yaml::DUMP_OBJECT_AS_MAP); // with Symfony 3.3: Yaml::DUMP_EMPTY_ARRAY_AS_SEQUENCE (https://github.com/symfony/symfony/issues/15781#issuecomment-300200486)
         // future patch: use Yaml::DUMP_EMPTY_ARRAY_AS_SEQUENCE (as in following line) and remove str_replace of Bearer {}
         // $yaml = Yaml::dump($yaml, 2, 4, Yaml::DUMP_EMPTY_ARRAY_AS_SEQUENCE);
